@@ -6,48 +6,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Prices | Ace Host</title>
     <style>
-        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        body { background: #050505; color: white; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
     </style>
 </head>
-<section class="py-24 px-6 max-w-7xl mx-auto">
-    <div class="text-center mb-16">
-        <h2 class="text-4xl font-black italic tracking-widest">TRANSPARENT <span class="text-blue-500">PRICING</span></h2>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-500">
-            <h4 class="text-blue-500 font-bold mb-4">Bot-Lite</h4>
-            <p class="text-4xl font-black mb-6">$2.99<span class="text-sm text-gray-500">/mo</span></p>
-            <ul class="text-sm text-gray-400 space-y-3 mb-8">
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 1 vCPU Shared</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2GB RAM DDR4</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 20GB NVMe Storage</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Instant Deployment</li>
-            </ul>
-            <button class="w-full bg-white text-black font-bold py-3 rounded-xl">Select Plan</button>
+<body>
+    <section class="py-24 px-6 max-w-6xl mx-auto">
+        <h2 class="text-center text-4xl font-black italic mb-20 uppercase tracking-widest">Pricing <span class="text-blue-500">Models</span></h2>
+        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            <div class="glass p-10 rounded-3xl border border-white/5">
+                <h4 class="text-gray-400 font-bold mb-4">STARTER BOT</h4>
+                <p class="text-5xl font-black mb-8 text-white">$1.99<span class="text-sm text-gray-500">/mo</span></p>
+                <ul class="space-y-4 text-gray-400 mb-10">
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 1 vCPU Shared</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 2GB RAM DDR4</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 20GB NVMe Storage</li>
+                </ul>
+                <button class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition">Deploy Now</button>
+            </div>
+            <div class="glass p-10 rounded-3xl border-2 border-blue-600 relative">
+                <div class="absolute -top-4 right-8 bg-blue-600 text-white text-xs px-4 py-1 rounded-full font-bold">BEST VALUE</div>
+                <h4 class="text-blue-500 font-bold mb-4">DEVELOPER PRO</h4>
+                <p class="text-5xl font-black mb-8 text-white">$4.99<span class="text-sm text-gray-500">/mo</span></p>
+                <ul class="space-y-4 text-gray-300 mb-10">
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 2 vCPU Core</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 8GB RAM DDR4</li>
+                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 64GB NVMe Storage</li>
+                </ul>
+                <button class="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition">Deploy Now</button>
+            </div>
         </div>
-
-        <div class="glass p-8 rounded-3xl border-2 border-blue-600 relative">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</span>
-            <h4 class="text-blue-500 font-bold mb-4">Developer Pro</h4>
-            <p class="text-4xl font-black mb-6">$8.50<span class="text-sm text-gray-500">/mo</span></p>
-            <ul class="text-sm text-gray-400 space-y-3 mb-8">
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2 vCPU Dedicated</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 8GB RAM DDR4</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> 64GB NVMe Storage</li>
-                <li><i class="fas fa-check text-blue-500 mr-2"></i> Hardened OS (Security)</li>
-            </ul>
-            <button class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl">Select Plan</button>
-        </div>
-
-        <div class="glass p-8 rounded-3xl opacity-60">
-            <h4 class="text-gray-500 font-bold mb-4">Custom Node</h4>
-            <p class="text-2xl font-black mb-6 italic">Coming Soon</p>
-            <p class="text-sm text-gray-500 mb-8 leading-relaxed">Dedicated high-frequency Ryzen 9 nodes are currently being audited for quality.</p>
-            <button class="w-full bg-gray-800 text-gray-500 font-bold py-3 rounded-xl cursor-not-allowed">Waitlist</button>
-        </div>
-    </div>
-</section>
+    </section>
 </body>
 </html>
