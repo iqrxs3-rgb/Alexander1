@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Our Hosts | Ace Host</title>
+    <style>
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        .host-card:hover { border-color: #3b82f6; transform: translateY(-5px); transition: all 0.3s ease; }
+    </style>
+</head>
+<body>
+<nav class="fixed w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/5 py-4 px-6">
+    <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <a href="index.html" class="text-2xl font-black italic tracking-tighter text-white">
+            ACE<span class="text-blue-500">HOST</span>
+        </a>
+
+        <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
+            <a href="index.html" class="hover:text-blue-500 transition">Home</a>
+            <a href="prices.html" class="hover:text-blue-500 transition">Prices</a>
+            <a href="hosts.html" class="hover:text-blue-500 transition">Our Hosts</a>
+            <a href="api.html" class="hover:text-blue-500 transition">API</a>
+            <a href="founders.html" class="hover:text-blue-500 transition">Founders</a>
+            <a href="information.html" class="hover:text-blue-500 transition">About</a>
+            <a href="contact.html" class="hover:text-blue-500 transition">Contact</a>
+        </div>
+
+        <div class="flex items-center gap-4">
+            <a href="https://discord.gg/9q9jbGsDzA" target="_blank" class="hidden sm:block text-gray-400 hover:text-indigo-500 transition">
+                <i class="fab fa-discord text-xl"></i>
+            </a>
+            <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition shadow-lg shadow-blue-600/20">
+                CLIENT AREA
+            </a>
+        </div>
+    </div>
+</nav>
+<div class="h-20"></div>
+    <section class="py-24 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-5xl font-black italic mb-4 uppercase tracking-tighter text-blue-500">Infrastructure</h2>
+            <p class="text-gray-400 max-w-2xl mx-auto uppercase text-xs tracking-[0.3em]">Powering your digital assets with high-frequency hardware</p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-10">
+            <div class="glass p-10 rounded-[40px] border border-white/5 host-card">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-16 h-16 bg-indigo-600/20 rounded-2xl flex items-center justify-center text-indigo-500 text-3xl">
+                        <i class="fab fa-discord"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Discord Bots</h3>
+                        <p class="text-indigo-500 text-xs font-mono">Hardened Performance</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Optimized for <span class="text-white">Node.js, Python, and Java</span>. Our nodes are configured to ensure your bot stays online 24/7 with zero cold starts and instant response times.
+                </p>
+                <ul class="space-y-4 mb-10 text-sm text-gray-300">
+                    <li><i class="fas fa-shield-virus text-indigo-500 mr-2"></i> L7 DDoS Mitigation</li>
+                    <li><i class="fas fa-bolt text-indigo-500 mr-2"></i> Ultra-Low Latency API</li>
+                    <li><i class="fas fa-sync text-indigo-500 mr-2"></i> Auto-Restart on Crash</li>
+                </ul>
+                <a href="prices.html" class="block text-center py-4 rounded-2xl bg-indigo-600 font-bold hover:bg-indigo-700 transition">View Bot Plans</a>
+            </div>
+
+            <div class="glass p-10 rounded-[40px] border border-white/5 host-card">
+                <div class="flex items-center gap-4 mb-8">
+                    <div class="w-16 h-16 bg-teal-600/20 rounded-2xl flex items-center justify-center text-teal-500 text-3xl">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold">Game Servers</h3>
+                        <p class="text-teal-500 text-xs font-mono">Ryzen-Powered Power</p>
+                    </div>
+                </div>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    Whether it's <span class="text-white">Minecraft, GTA V (FiveM), or Rust</span>, our game-dedicated nodes are built to handle high tick rates and massive player counts without lag.
+                </p>
+                <ul class="space-y-4 mb-10 text-sm text-gray-300">
+                    <li><i class="fas fa-microchip text-teal-500 mr-2"></i> High-Frequency CPUs</li>
+                    <li><i class="fas fa-memory text-teal-500 mr-2"></i> Dedicated RAM Allocation</li>
+                    <li><i class="fas fa-fire-extinguisher text-teal-500 mr-2"></i> Game-Specific Firewalls</li>
+                </ul>
+                <a href="prices.html" class="block text-center py-4 rounded-2xl bg-teal-600 font-bold hover:bg-teal-700 transition">Explore Game Slots</a>
+            </div>
+        </div>
+
+        <div class="mt-20 glass p-10 rounded-[40px] border border-white/5">
+            <h4 class="text-xl font-bold mb-8 italic"><i class="fas fa-microchip mr-3 text-blue-500"></i> The Hardware Stack</h4>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div>
+                    <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Processors</p>
+                    <p class="text-sm">2vCPU Scalable Nodes</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Storage</p>
+                    <p class="text-sm">Pure NVMe Gen4 SSD</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Network</p>
+                    <p class="text-sm">1 Gbps Uplink</p>
+                </div>
+                <div>
+                    <p class="text-gray-500 text-[10px] uppercase font-bold mb-1">Security</p>
+                    <p class="text-sm">Ace-Guard™ Firewall</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
