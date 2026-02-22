@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Developer API | Ace Host</title>
+    <style>
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        code { color: #3b82f6; font-family: 'Fira Code', monospace; }
+    </style>
+</head>
+<body>
+    <section class="py-24 px-6 max-w-5xl mx-auto">
+        <h2 class="text-4xl font-black italic mb-4 uppercase">Developer <span class="text-blue-500">API</span></h2>
+        <p class="text-gray-400 mb-12 italic text-sm font-mono">Automate your infrastructure with our powerful REST API.</p>
+
+        <div class="glass p-8 rounded-3xl border border-white/10 mb-12">
+            <div class="flex items-center gap-3 mb-6">
+                <i class="fab fa-node-js text-green-500 text-3xl"></i>
+                <h4 class="font-bold text-xl">Get Server Status (Node.js)</h4>
+            </div>
+            <div class="bg-black/50 p-6 rounded-2xl border border-white/5 overflow-x-auto">
+                <pre class="text-sm"><code>const axios = require('axios');
+
+async function checkServer() {
+  try {
+    const response = await axios.get('https://api.acehost.us.ci/v1/server/status', {
+      headers: { 'Authorization': 'Bearer YOUR_API_KEY' }
+    });
+    console.log('Server Status:', response.data.status);
+  } catch (error) {
+    console.error('Error fetching status:', error);
+  }
+}
+
+checkServer();</code></pre>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6 text-sm">
+            <div class="glass p-6 rounded-2xl">
+                <h5 class="text-blue-500 font-bold mb-2 uppercase tracking-widest">Authentication</h5>
+                <p class="text-gray-400">All requests must include an API Key in the Authorization header as a Bearer token.</p>
+            </div>
+            <div class="glass p-6 rounded-2xl">
+                <h5 class="text-teal-500 font-bold mb-2 uppercase tracking-widest">Rate Limiting</h5>
+                <p class="text-gray-400">Default limit is 60 requests per minute. Contact support for Enterprise limits.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
