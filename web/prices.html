@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Prices | Ace Host</title>
+    <style>
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+    </style>
+</head>
+<section class="py-24 px-6 max-w-7xl mx-auto">
+    <div class="text-center mb-16">
+        <h2 class="text-4xl font-black italic tracking-widest">TRANSPARENT <span class="text-blue-500">PRICING</span></h2>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-8">
+        <div class="glass p-8 rounded-3xl hover:scale-105 transition duration-500">
+            <h4 class="text-blue-500 font-bold mb-4">Bot-Lite</h4>
+            <p class="text-4xl font-black mb-6">$2.99<span class="text-sm text-gray-500">/mo</span></p>
+            <ul class="text-sm text-gray-400 space-y-3 mb-8">
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 1 vCPU Shared</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2GB RAM DDR4</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 20GB NVMe Storage</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Instant Deployment</li>
+            </ul>
+            <button class="w-full bg-white text-black font-bold py-3 rounded-xl">Select Plan</button>
+        </div>
+
+        <div class="glass p-8 rounded-3xl border-2 border-blue-600 relative">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-blue-600 px-4 py-1 rounded-full text-xs font-bold uppercase">Best Value</span>
+            <h4 class="text-blue-500 font-bold mb-4">Developer Pro</h4>
+            <p class="text-4xl font-black mb-6">$8.50<span class="text-sm text-gray-500">/mo</span></p>
+            <ul class="text-sm text-gray-400 space-y-3 mb-8">
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2 vCPU Dedicated</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 8GB RAM DDR4</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 64GB NVMe Storage</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Hardened OS (Security)</li>
+            </ul>
+            <button class="w-full bg-blue-600 text-white font-bold py-3 rounded-xl">Select Plan</button>
+        </div>
+
+        <div class="glass p-8 rounded-3xl opacity-60">
+            <h4 class="text-gray-500 font-bold mb-4">Custom Node</h4>
+            <p class="text-2xl font-black mb-6 italic">Coming Soon</p>
+            <p class="text-sm text-gray-500 mb-8 leading-relaxed">Dedicated high-frequency Ryzen 9 nodes are currently being audited for quality.</p>
+            <button class="w-full bg-gray-800 text-gray-500 font-bold py-3 rounded-xl cursor-not-allowed">Waitlist</button>
+        </div>
+    </div>
+</section>
+</body>
+</html>
