@@ -10,15 +10,19 @@
         body { background-color: #050505; color: white; font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
         .gradient-text { background: linear-gradient(90deg, #3b82f6, #2dd4bf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        #mobile-menu { transition: transform 0.3s ease; }
     </style>
 </head>
 <body>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────────── -->
 <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/5 py-4 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <a href="/" class="text-2xl font-black italic tracking-tighter text-white">
             ACE<span class="text-blue-500">HOST</span>
         </a>
 
+        <!-- Desktop Links -->
         <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
             <a href="/" class="hover:text-blue-500 transition">Home</a>
             <a href="/hosts" class="hover:text-blue-500 transition">Hosts</a>
@@ -29,51 +33,78 @@
             <a href="/contact" class="hover:text-blue-500 transition">Contact</a>
         </div>
 
-        <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition">
+        <div class="flex items-center gap-4">
+            <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition hidden md:block">
+                CLIENT AREA
+            </a>
+            <!-- Hamburger -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- ─── MOBILE MENU ────────────────────────────────────────────── -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 z-40 transform translate-x-full"
+     style="background: #080808; border-left: 1px solid rgba(255,255,255,0.07);">
+    <div class="pt-24 px-8 flex flex-col gap-2">
+        <a href="/" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Home</a>
+        <a href="/hosts" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Hosts</a>
+        <a href="/prices" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Prices</a>
+        <a href="/api" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">API</a>
+        <a href="/founders" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Founders</a>
+        <a href="/information" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">About</a>
+        <a href="/contact" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Contact</a>
+        <a href="https://panel.acehost.us.ci" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full text-xs font-black text-center hover:bg-blue-700 transition">
             CLIENT AREA
         </a>
     </div>
-</nav>
+</div>
+
 <div class="h-20"></div>
-    <section class="pt-40 pb-20 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-            DEPLOY YOUR DREAMS <br> ON <span class="gradient-text">ELITE SERVERS</span>
-        </h1>
-        <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
-            High-performance hosting for Discord Bots, Games, and APIs. Built by developers, for developers.
-        </p>
-        <div class="flex flex-wrap justify-center gap-4">
-            <button class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition">View Hosting Plans</button>
-            <button class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">Read Documentation</button>
+
+<!-- ─── HERO ───────────────────────────────────────────────────── -->
+<section class="pt-40 pb-20 px-6 text-center">
+    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
+        DEPLOY YOUR DREAMS <br> ON <span class="gradient-text">ELITE SERVERS</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg mb-10">
+        High-performance hosting for Discord Bots, Games, and APIs. Built by developers, for developers.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4">
+        <a href="/prices" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition">View Hosting Plans</a>
+        <a href="/api" class="glass px-8 py-4 rounded-xl font-bold hover:bg-white/10 transition">Read Documentation</a>
+    </div>
+</section>
+
+<!-- ─── HOSTS ───────────────────────────────────────────────────── -->
+<section id="hosts" class="py-20 px-6 max-w-7xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-8">
+        <div class="glass p-10 rounded-3xl hover:border-blue-500 transition group">
+            <i class="fab fa-discord text-4xl text-blue-500 mb-6"></i>
+            <h3 class="text-2xl font-bold mb-4">Discord Bot Hosting</h3>
+            <p class="text-gray-400 mb-6">Optimized for Node.js, Python, and JDA. 24/7 uptime with auto-restart features.</p>
+            <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Low Latency Nodes</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Anti-DDoS Protection</li>
+            </ul>
+            <a href="/prices" class="block w-full py-3 rounded-xl border border-white/10 text-center group-hover:bg-blue-600 transition">Get Started</a>
         </div>
-    </section>
 
-    <section id="hosts" class="py-20 px-6 max-w-7xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-8">
-            <div class="glass p-10 rounded-3xl hover:border-blue-500 transition group">
-                <i class="fab fa-discord text-4xl text-blue-500 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">Discord Bot Hosting</h3>
-                <p class="text-gray-400 mb-6">Optimized for Node.js, Python, and JDA. 24/7 uptime with auto-restart features.</p>
-                <ul class="text-sm text-gray-500 space-y-2 mb-8">
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Low Latency Nodes</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> Anti-DDoS Protection</li>
-                </ul>
-                <button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-blue-600 transition">Get Started</button>
-            </div>
-
-            <div class="glass p-10 rounded-3xl hover:border-teal-500 transition group">
-                <i class="fas fa-gamepad text-4xl text-teal-500 mb-6"></i>
-                <h3 class="text-2xl font-bold mb-4">Game Server Hosting</h3>
-                <p class="text-gray-400 mb-6">Powered by high-frequency CPUs to ensure smooth gameplay for Minecraft, Rust, and more.</p>
-                <ul class="text-sm text-gray-500 space-y-2 mb-8">
-                    <li><i class="fas fa-check text-teal-500 mr-2"></i> NVMe SSD Storage</li>
-                    <li><i class="fas fa-check text-teal-500 mr-2"></i> Custom Pterodactyl Panel</li>
-                </ul>
-                <button class="w-full py-3 rounded-xl border border-white/10 group-hover:bg-teal-600 transition">Explore Games</button>
-            </div>
+        <div class="glass p-10 rounded-3xl hover:border-teal-500 transition group">
+            <i class="fas fa-gamepad text-4xl text-teal-500 mb-6"></i>
+            <h3 class="text-2xl font-bold mb-4">Game Server Hosting</h3>
+            <p class="text-gray-400 mb-6">Powered by high-frequency CPUs to ensure smooth gameplay for Minecraft, Rust, and more.</p>
+            <ul class="text-sm text-gray-500 space-y-2 mb-8">
+                <li><i class="fas fa-check text-teal-500 mr-2"></i> NVMe SSD Storage</li>
+                <li><i class="fas fa-check text-teal-500 mr-2"></i> Custom Pterodactyl Panel</li>
+            </ul>
+            <a href="/prices" class="block w-full py-3 rounded-xl border border-white/10 text-center group-hover:bg-teal-600 transition">Explore Games</a>
         </div>
-    </section>
-    <script src="script.js"></script>
+    </div>
+</section>
 
+<script src="script.js"></script>
 </body>
 </html>

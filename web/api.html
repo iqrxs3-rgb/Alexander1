@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Developer API | Ace Host</title>
@@ -9,42 +10,51 @@
         body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
         code { color: #3b82f6; font-family: 'Fira Code', monospace; }
+        #mobile-menu { transition: transform 0.3s ease; }
     </style>
 </head>
 <body>
 <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/5 py-4 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
-        <a href="/" class="text-2xl font-black italic tracking-tighter text-white">
-            ACE<span class="text-blue-500">HOST</span>
-        </a>
-
+        <a href="/" class="text-2xl font-black italic tracking-tighter text-white">ACE<span class="text-blue-500">HOST</span></a>
         <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
             <a href="/" class="hover:text-blue-500 transition">Home</a>
             <a href="/hosts" class="hover:text-blue-500 transition">Hosts</a>
             <a href="/prices" class="hover:text-blue-500 transition">Prices</a>
-            <a href="/api" class="hover:text-blue-500 transition">API</a>
+            <a href="/api" class="text-blue-500">API</a>
             <a href="/founders" class="hover:text-blue-500 transition">Founders</a>
             <a href="/information" class="hover:text-blue-500 transition">About</a>
             <a href="/contact" class="hover:text-blue-500 transition">Contact</a>
         </div>
-
-        <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition">
-            CLIENT AREA
-        </a>
+        <div class="flex items-center gap-4">
+            <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition hidden md:block">CLIENT AREA</a>
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2"><i class="fas fa-bars text-xl"></i></button>
+        </div>
     </div>
 </nav>
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 z-40 transform translate-x-full" style="background:#080808;border-left:1px solid rgba(255,255,255,0.07);">
+    <div class="pt-24 px-8 flex flex-col gap-2">
+        <a href="/" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Home</a>
+        <a href="/hosts" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Hosts</a>
+        <a href="/prices" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Prices</a>
+        <a href="/api" class="py-4 text-sm font-bold uppercase tracking-widest text-blue-500 border-b border-white/5">API</a>
+        <a href="/founders" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Founders</a>
+        <a href="/information" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">About</a>
+        <a href="/contact" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Contact</a>
+        <a href="https://panel.acehost.us.ci" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full text-xs font-black text-center hover:bg-blue-700 transition">CLIENT AREA</a>
+    </div>
+</div>
 <div class="h-20"></div>
-    <section class="py-24 px-6 max-w-5xl mx-auto">
-        <h2 class="text-4xl font-black italic mb-4 uppercase">Developer <span class="text-blue-500">API</span></h2>
-        <p class="text-gray-400 mb-12 italic text-sm font-mono">Automate your infrastructure with our powerful REST API.</p>
-
-        <div class="glass p-8 rounded-3xl border border-white/10 mb-12">
-            <div class="flex items-center gap-3 mb-6">
-                <i class="fab fa-node-js text-green-500 text-3xl"></i>
-                <h4 class="font-bold text-xl">Get Server Status (Node.js)</h4>
-            </div>
-            <div class="bg-black/50 p-6 rounded-2xl border border-white/5 overflow-x-auto">
-                <pre class="text-sm"><code>const axios = require('axios');
+<section class="py-24 px-6 max-w-5xl mx-auto">
+    <h2 class="text-4xl font-black italic mb-4 uppercase">Developer <span class="text-blue-500">API</span></h2>
+    <p class="text-gray-400 mb-12 italic text-sm font-mono">Automate your infrastructure with our powerful REST API.</p>
+    <div class="glass p-8 rounded-3xl border border-white/10 mb-12">
+        <div class="flex items-center gap-3 mb-6">
+            <i class="fab fa-node-js text-green-500 text-3xl"></i>
+            <h4 class="font-bold text-xl">Get Server Status (Node.js)</h4>
+        </div>
+        <div class="bg-black/50 p-6 rounded-2xl border border-white/5 overflow-x-auto">
+            <pre class="text-sm"><code>const axios = require('axios');
 
 async function checkServer() {
   try {
@@ -58,21 +68,19 @@ async function checkServer() {
 }
 
 checkServer();</code></pre>
-            </div>
         </div>
-
-        <div class="grid md:grid-cols-2 gap-6 text-sm">
-            <div class="glass p-6 rounded-2xl">
-                <h5 class="text-blue-500 font-bold mb-2 uppercase tracking-widest">Authentication</h5>
-                <p class="text-gray-400">All requests must include an API Key in the Authorization header as a Bearer token.</p>
-            </div>
-            <div class="glass p-6 rounded-2xl">
-                <h5 class="text-teal-500 font-bold mb-2 uppercase tracking-widest">Rate Limiting</h5>
-                <p class="text-gray-400">Default limit is 60 requests per minute. Contact support for Enterprise limits.</p>
-            </div>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6 text-sm">
+        <div class="glass p-6 rounded-2xl">
+            <h5 class="text-blue-500 font-bold mb-2 uppercase tracking-widest">Authentication</h5>
+            <p class="text-gray-400">All requests must include an API Key in the Authorization header as a Bearer token.</p>
         </div>
-    </section>
-        <script src="script.js"></script>
-
+        <div class="glass p-6 rounded-2xl">
+            <h5 class="text-teal-500 font-bold mb-2 uppercase tracking-widest">Rate Limiting</h5>
+            <p class="text-gray-400">Default limit is 60 requests per minute. Contact support for Enterprise limits.</p>
+        </div>
+    </div>
+</section>
+<script src="script.js"></script>
 </body>
 </html>

@@ -2,63 +2,117 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>Prices | Ace Host</title>
     <style>
-        body { background: #050505; color: white; }
+        body { background: #050505; color: white; font-family: 'Inter', sans-serif; }
         .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.05); }
+        #mobile-menu { transition: transform 0.3s ease; }
+        .deploy-btn { cursor: pointer; transition: all 0.3s; }
+        .deploy-btn:disabled { opacity: 0.6; cursor: not-allowed; }
     </style>
 </head>
 <body>
+
+<!-- ─── NAVBAR ─────────────────────────────────────────────────── -->
 <nav class="fixed w-full z-50 bg-black/50 backdrop-blur-lg border-b border-white/5 py-4 px-6">
     <div class="max-w-7xl mx-auto flex justify-between items-center">
         <a href="/" class="text-2xl font-black italic tracking-tighter text-white">
             ACE<span class="text-blue-500">HOST</span>
         </a>
-
         <div class="hidden md:flex gap-8 text-sm font-bold uppercase tracking-widest text-gray-400">
             <a href="/" class="hover:text-blue-500 transition">Home</a>
             <a href="/hosts" class="hover:text-blue-500 transition">Hosts</a>
-            <a href="/prices" class="hover:text-blue-500 transition">Prices</a>
+            <a href="/prices" class="text-blue-500 transition">Prices</a>
             <a href="/api" class="hover:text-blue-500 transition">API</a>
             <a href="/founders" class="hover:text-blue-500 transition">Founders</a>
             <a href="/information" class="hover:text-blue-500 transition">About</a>
             <a href="/contact" class="hover:text-blue-500 transition">Contact</a>
         </div>
-
-        <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition">
-            CLIENT AREA
-        </a>
+        <div class="flex items-center gap-4">
+            <a href="https://panel.acehost.us.ci" class="bg-blue-600 text-white px-6 py-2 rounded-full text-xs font-black hover:bg-blue-700 transition hidden md:block">CLIENT AREA</a>
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
     </div>
 </nav>
+
+<!-- ─── MOBILE MENU ────────────────────────────────────────────── -->
+<div id="mobile-menu" class="fixed top-0 right-0 h-full w-72 z-40 transform translate-x-full"
+     style="background: #080808; border-left: 1px solid rgba(255,255,255,0.07);">
+    <div class="pt-24 px-8 flex flex-col gap-2">
+        <a href="/" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Home</a>
+        <a href="/hosts" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Hosts</a>
+        <a href="/prices" class="py-4 text-sm font-bold uppercase tracking-widest text-blue-500 border-b border-white/5">Prices</a>
+        <a href="/api" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">API</a>
+        <a href="/founders" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Founders</a>
+        <a href="/information" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">About</a>
+        <a href="/contact" class="py-4 text-sm font-bold uppercase tracking-widest text-gray-400 hover:text-blue-500 border-b border-white/5 transition">Contact</a>
+        <a href="https://panel.acehost.us.ci" class="mt-6 bg-blue-600 text-white px-6 py-3 rounded-full text-xs font-black text-center hover:bg-blue-700 transition">CLIENT AREA</a>
+    </div>
+</div>
+
 <div class="h-20"></div>
-    <section class="py-24 px-6 max-w-6xl mx-auto">
-        <h2 class="text-center text-4xl font-black italic mb-20 uppercase tracking-widest">Pricing <span class="text-blue-500">Models</span></h2>
-        <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-            <div class="glass p-10 rounded-3xl border border-white/5">
-                <h4 class="text-gray-400 font-bold mb-4">STARTER BOT</h4>
-                <p class="text-5xl font-black mb-8 text-white">$1.99<span class="text-sm text-gray-500">/mo</span></p>
-                <ul class="space-y-4 text-gray-400 mb-10">
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 1 vCPU Shared</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 2GB RAM DDR4</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 20GB NVMe Storage</li>
-                </ul>
-                <button class="w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition">Deploy Now</button>
-            </div>
-            <div class="glass p-10 rounded-3xl border-2 border-blue-600 relative">
-                <div class="absolute -top-4 right-8 bg-blue-600 text-white text-xs px-4 py-1 rounded-full font-bold">BEST VALUE</div>
-                <h4 class="text-blue-500 font-bold mb-4">DEVELOPER PRO</h4>
-                <p class="text-5xl font-black mb-8 text-white">$4.99<span class="text-sm text-gray-500">/mo</span></p>
-                <ul class="space-y-4 text-gray-300 mb-10">
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 2 vCPU Core</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 8GB RAM DDR4</li>
-                    <li><i class="fas fa-check text-blue-500 mr-2"></i> 64GB NVMe Storage</li>
-                </ul>
-                <button class="w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition">Deploy Now</button>
-            </div>
+
+<!-- ─── PRICING ─────────────────────────────────────────────────── -->
+<section class="py-24 px-6 max-w-6xl mx-auto">
+    <h2 class="text-center text-4xl font-black italic mb-4 uppercase tracking-widest">Pricing <span class="text-blue-500">Models</span></h2>
+    <p class="text-center text-gray-500 text-sm mb-20">Secure payments powered by <span class="text-white font-bold">Stripe</span> <i class="fab fa-stripe-s text-[#635bff]"></i></p>
+
+    <div class="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+
+        <!-- Starter -->
+        <div class="glass p-10 rounded-3xl border border-white/5 flex flex-col">
+            <h4 class="text-gray-400 font-bold mb-4 uppercase tracking-widest text-sm">Starter Bot</h4>
+            <p class="text-5xl font-black mb-2 text-white">$1.99<span class="text-sm text-gray-500">/mo</span></p>
+            <p class="text-gray-600 text-xs mb-8">Perfect for small bots & testing</p>
+            <ul class="space-y-4 text-gray-400 mb-10 flex-1">
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 1 vCPU Shared</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2GB RAM DDR4</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 20GB NVMe Storage</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 24/7 Uptime</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Anti-DDoS</li>
+            </ul>
+            <button data-plan="starter" class="deploy-btn w-full py-4 rounded-xl bg-white text-black font-bold hover:bg-blue-600 hover:text-white transition">
+                <i class="fas fa-rocket mr-2"></i> Deploy Now
+            </button>
         </div>
-    </section>
-        <script src="script.js"></script>
+
+        <!-- Pro -->
+        <div class="glass p-10 rounded-3xl border-2 border-blue-600 relative flex flex-col">
+            <div class="absolute -top-4 right-8 bg-blue-600 text-white text-xs px-4 py-1 rounded-full font-bold">BEST VALUE</div>
+            <h4 class="text-blue-500 font-bold mb-4 uppercase tracking-widest text-sm">Developer Pro</h4>
+            <p class="text-5xl font-black mb-2 text-white">$4.99<span class="text-sm text-gray-500">/mo</span></p>
+            <p class="text-gray-600 text-xs mb-8">For serious projects & production bots</p>
+            <ul class="space-y-4 text-gray-300 mb-10 flex-1">
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 2 vCPU Core</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 8GB RAM DDR4</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> 64GB NVMe Storage</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Priority Support</li>
+                <li><i class="fas fa-check text-blue-500 mr-2"></i> Advanced DDoS Shield</li>
+            </ul>
+            <button data-plan="pro" class="deploy-btn w-full py-4 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 transition">
+                <i class="fas fa-rocket mr-2"></i> Deploy Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Stripe Badge -->
+    <div class="flex justify-center mt-12">
+        <div class="flex items-center gap-3 text-gray-600 text-xs">
+            <i class="fas fa-lock"></i>
+            <span>Secure payments via Stripe. We never store your card details.</span>
+            <i class="fab fa-cc-visa text-xl"></i>
+            <i class="fab fa-cc-mastercard text-xl"></i>
+            <i class="fab fa-cc-amex text-xl"></i>
+        </div>
+    </div>
+</section>
+
+<script src="script.js"></script>
 </body>
 </html>
