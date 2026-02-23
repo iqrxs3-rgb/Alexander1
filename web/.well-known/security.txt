@@ -1,0 +1,15 @@
+# Ace Host Security Policy
+# Founded by Alexander & Jef - Cybersecurity Experts
+
+Contact: mailto:security@acehost.us.ci
+Contact: https://discord.gg/9q9jbGsDzA
+Expires: 2027-02-23T00:00:00.000Z
+Preferred-Languages: en, ar
+Canonical: https://acehost.us.ci/.well-known/security.txt
+
+# We appreciate ethical hackers. If you find a vulnerability, 
+# please report it to us via email or Discord.
+Policy: https://acehost.us.ci/information
+
+# Looking for security experts?
+Hiring: https://acehost.us.ci/contact
